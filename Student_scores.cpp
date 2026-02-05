@@ -1,41 +1,55 @@
 #include <iostream>
-using namespace std;
+#include <iomanip>
 
-int main() {
-    int scores[10];
+using std::cout;
+using std::end;
+using std::string;
+using std:: setprecision
+
+
+
+int main() 
+
+    // Make an array of 10 student scores between: (0-100)
+
+    int scores[10] = {70, 34, 100, 100, 78, 95, 77, 82, 99, 78};
+
+
+
+    // Variables: For the sum,students passed, highest and lowest scores.
+
     int sum = 0;
-    int highest, lowest;
 
-    // Input scores
+    int passingCount = 0;
+
+    int highest = scores[0];
+
+    int lowest = scores[0];
+
+
+
+    // Loop through a fixed-size array scores[10] to calculate: sum,the passing students,and the lowest and highest scores
+
     for (int i = 0; i < 10; i++) {
-        cout << "Enter score " << i + 1 << " (0-99): ";
-        cin >> scores[i];
+
         sum += scores[i];
 
-        if (i == 0) {
-            highest = lowest = scores[i];
-        } else {
-            if (scores[i] > highest)
-                highest = scores[i];
-            if (scores[i] < lowest)
-                lowest = scores[i];
-        }
-    }
 
-    double average = sum / 10.0;
 
-    cout << "\nTotal score: " << sum << endl;
-    cout << "Average score: " << average << endl;
-    cout << "Highest score: " << highest << endl;
-    cout << "Lowest score: " << lowest << endl;
+  // Output my results with setprecision for:
 
-    cout << "\nPass/Fail Results:\n";
-    for (int i = 0; i < 10; i++) {
-        if (scores[i] >= 70)
-            cout << "Student " << i + 1 << ": PASS\n";
-        else
-            cout << "Student " << i + 1 << ": FAIL\n";
-    }
+    std::cout << "Sum of scores: " << sum << std::endl;
+
+    std::cout << "Average score: " << std::fixed << std::setprecision(2) << average << std::endl;
+
+    std::cout << "Number of passing students (70 or better): " << passingCount << std::endl;
+
+    std::cout << "Highest score: " << highest << std::endl;
+
+    std::cout << "Lowest score: " << lowest << std::endl;
+
+
 
     return 0;
+
 }
